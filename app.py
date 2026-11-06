@@ -27,9 +27,7 @@ model, scaler = load_models()
 st.title("📊 Customer Churn Prediction Dashboard")
 st.markdown("An end-to-end Data Science project to predict telecom customer churn and provide actionable insights.")   
 
-# ==========================================
-# SIDEBAR
-# ==========================================
+# implementing the sidebar 
 with st.sidebar:
     st.title("📌 Project Summary")
     st.info("""
@@ -51,9 +49,8 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "ℹ️ About Project"
 ])
 
-# ==========================================
 # TAB 1: MODEL PERFORMANCE
-# ==========================================
+
 with tab1:
     st.header("📈 Model Performance & Metrics")
     
@@ -120,9 +117,8 @@ with tab1:
         **Insight:** AUC of 0.91 means the model has a 91% probability of correctly distinguishing between a churning and a non-churning customer.
         """)
 
-# ==========================================
 # TAB 2: LIVE PREDICTION (With SHAP)
-# ==========================================
+
 with tab2:
     st.header("Check Customer Churn Risk")
     st.write("Fill in the customer details and click 'Predict'.")
@@ -197,9 +193,9 @@ with tab2:
             )
             st.pyplot(fig_shap, bbox_inches='tight')
 
-# ==========================================
+
 # TAB 3: DATA INSIGHTS (EDA GRAPHS)
-# ==========================================
+
 with tab3:
     st.header("📊 Exploratory Data Analysis & Insights")
     st.write("Interactive business insights derived from the dataset to understand churn behavior.")
@@ -209,7 +205,7 @@ with tab3:
     if os.path.exists(data_path):
         df_eda = pd.read_csv(data_path)
         
-        # --- Row 1: Pie Chart and Age Distribution ---
+        #  Row 1: Pie Chart and Age Distribution 
         col_r1, col_r2 = st.columns(2)
         
         with col_r1:
@@ -228,7 +224,7 @@ with tab3:
 
         st.markdown("---")
 
-        # --- Row 2: Tenure and Monthly Charges ---
+        # Row 2: Tenure and Monthly Charges
         col_r3, col_r4 = st.columns(2)
         
         with col_r3:
@@ -247,7 +243,7 @@ with tab3:
 
         st.markdown("---")
 
-        # --- Row 3: Contract Type and Payment Method ---
+        # Row 3: Contract Type and Payment Method
         col_r5, col_r6 = st.columns(2)
         
         with col_r5:
@@ -266,7 +262,7 @@ with tab3:
 
         st.markdown("---")
 
-        # --- Row 4: Customer Service Calls and Correlation Heatmap ---
+        # Row 4: Customer Service Calls and Correlation Heatmap 
         col_r7, col_r8 = st.columns(2)
         
         with col_r7:
@@ -292,9 +288,8 @@ with tab3:
     else:
         st.error("Dataset not found. Please ensure 'telco_churn.csv' is in the 'data/raw/' folder.")
 
-# ==========================================
 # TAB 4: BATCH PREDICTION
-# ==========================================
+
 with tab4:
     st.header("📁 Batch Prediction")
     st.write("Upload a CSV file containing multiple customer records to get bulk predictions.")
@@ -321,7 +316,7 @@ with tab4:
         
         if st.button("Run Batch Prediction"):
             # Batch data preprocessing (Simplified for template structure)
-            # Yahan hum maan rahe hain ki template wale columns hain
+            # assume that here templates columns are there 
             try:
                 # Create a full 33-feature dataframe based on uploaded data
                 batch_input = pd.DataFrame()
@@ -365,9 +360,8 @@ with tab4:
             except Exception as e:
                 st.error(f"Error processing file. Please ensure columns match the template. Error: {e}")
 
-# ==========================================
 # TAB 5: ABOUT PROJECT
-# ==========================================
+
 with tab5:
     st.header("About This Project")
     st.markdown("""
