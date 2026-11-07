@@ -178,15 +178,28 @@ with tab2:
             st.subheader("🔍 Why this prediction?")
             st.write("This chart explains which features pushed the model towards Churn (Red) or No-Churn (Blue).")
             
-            # SHAP Explainability
+            # SHAP Explainability (Fixed)
             explainer = shap.TreeExplainer(model)
             shap_values = explainer.shap_values(input_df)
             
             fig_shap, ax_shap = plt.subplots(figsize=(6, 4))
-            # For LightGBM, shap_values[1] is for class 1 (Churn)
+            
+            # Smart Fix: Check karo ki shap_values list hai ya array
+            if isinstance(shap_values, list):
+                vals = shap_values[1][0]
+                base_val = explainer.expected_value[1]
+            else:
+                # Agar 3D array hai (new SHAP version)
+                if len(shap_values.shape) == 3:
+                    vals = shap_values[0, :, 1]
+                    base_val = explainer.expected_value[1]
+                else:
+                    vals = shap_values[0]
+                    base_val = explainer.expected_value
+            
             shap.waterfall_plot(
-                shap.Explanation(values=shap_values[1][0], 
-                                 base_values=explainer.expected_value[1], 
+                shap.Explanation(values=vals, 
+                                 base_values=base_val, 
                                  data=input_df.iloc[0], 
                                  feature_names=input_df.columns),
                 show=False
