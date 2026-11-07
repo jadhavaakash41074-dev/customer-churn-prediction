@@ -1,0 +1,261 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Colorful Light Theme Background */
+body {
+    background-color: #f0f4f8; /* Halka Blue/Grey background */
+    color: #334155;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 1. Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.9); /* Glass effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    /* Colorful gradient text for .dev */
+    background: linear-gradient(135deg, #6366f1, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav a {
+    color: #475569;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #6366f1; /* Purple hover */
+    transform: translateY(-2px);
+    display: inline-block;
+}
+
+/* 2. Hero Section */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    /* Colorful Gradient Background */
+    background: linear-gradient(135deg, #e0e7ff 0%, #f0f4f8 50%, #cffafe 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #0f172a;
+    max-width: 900px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-bottom: 40px;
+    color: #475569;
+}
+
+.hero b {
+    color: #6366f1; /* Purple highlight */
+}
+
+/* The Vibrant Button */
+.btn-launch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 45px;
+    background: linear-gradient(135deg, #6366f1, #06b6d4); /* Purple to Cyan */
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); /* Purple Glow */
+}
+
+.btn-launch:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+}
+
+/* 3. Metrics Section */
+.metrics {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 80px 20px;
+    background-color: transparent;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card ke upar ek rangeen line */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+.card h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #475569;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* 4. Gallery Section */
+.gallery {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    flex-grow: 1;
+}
+
+.gallery h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+.gallery > p {
+    color: #64748b;
+    margin-bottom: 60px;
+    font-size: 1.2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.gallery-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.gallery-item {
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+    border-color: #c7d2fe;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    min-height: 350px;
+    object-fit: contain;
+    background-color: #0f172a;
+    display: block;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px;
+}
+
+.caption {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.caption h3 {
+    color: #1e293b;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.caption p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+/* 5. Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #0f172a; /* Dark footer for contrast */
+    color: #94a3b8;
+    font-weight: 500;
+}
