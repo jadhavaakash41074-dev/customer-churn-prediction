@@ -242,30 +242,8 @@ streamlit run app/app.py
 - Integrate the model with telecom customer management systems.
 - Monitor model performance and data drift over time.
 
-## 👨‍💻 Project Status
 
-**Current Status:** Phase 1 – Exploratory Data Analysis (EDA) in Progress.
 
-| Phase | Description | Status |
-|---|---|---|
-| 1 | Project Setup & EDA | In Progress |
-| 2 | Data Preprocessing | Upcoming |
-| 3 | Model Development | Upcoming |
-| 4 | SHAP Explainability | Upcoming |
-| 5 | Streamlit Dashboard | Upcoming |
-| 6 | Deployment | Upcoming |
-
-## 👤 Author
-
-**Name:** Your Name
-
-**Project:** Telecom Customer Churn Prediction
-
-**Domain:** Data Science & Machine Learning
-
-**Tools:** Python, Machine Learning, SHAP, Streamlit
-
----
 
 ⭐ If you find this project interesting, consider giving the repository a star!
 
